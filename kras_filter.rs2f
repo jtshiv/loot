@@ -341,6 +341,104 @@ apply (name:VAR_HIDES_HIDEBYDEFAULT) { hidden = true; }
 
 
 
+
+
+
+
+/*@ define:module:salvaging
+name: 'Salvaging'
+description: |
+  Provides filtering options for salvaging areas.
+*/
+
+
+#define CONST_AREA_MERCENARYSHIPWRECK0 [1640,2130,0,1829,2465,0]
+#define CONST_AREA_MERCENARYSHIPWRECK1 [2074,2130,0,2212,2285,0]
+#define CONST_MERCENARYSHIPWRECK_RULE(_cond) rule ((area:CONST_AREA_MERCENARYSHIPWRECK0 || area:CONST_AREA_MERCENARYSHIPWRECK1) && (_cond))
+
+/*@ define:input
+type: enumlist
+label: 'Hide drops: Pre-roll'
+group: Mercenary shipwreck
+enum: ["Sailors' amulet (inert)","Clue scroll (hard)","Facility bottle (empty)","Broken sextant","Dragon cannonball","Salvor's paint"]
+*/
+#define VAR_MERCENARYSHIPWRECK_ENUMLIST_FILTER_PREROLL []
+CONST_MERCENARYSHIPWRECK_RULE (name:VAR_MERCENARYSHIPWRECK_ENUMLIST_FILTER_PREROLL) {
+  hidden = true;
+}
+
+/*@ define:input
+type: enumlist
+label: 'Hide drops: Weapons and armour'
+group: Mercenary shipwreck
+enum: ["Mithril longsword","Adamant longsword","Adamant 2h sword","Green d'hide body","Rune longsword"]
+*/
+#define VAR_MERCENARYSHIPWRECK_ENUMLIST_FILTER_WEAPONSANDARMOUR []
+CONST_MERCENARYSHIPWRECK_RULE (name:VAR_MERCENARYSHIPWRECK_ENUMLIST_FILTER_WEAPONSANDARMOUR) {
+  hidden = true;
+}
+
+/*@ define:input
+type: enumlist
+label: 'Hide drops: Ammunition and materials'
+group: Mercenary shipwreck
+enum: ["Adamant arrowtips","Mithril dart tip","Adamant dart tip","Adamant arrow","Adamant bolts(unf)","Rune arrow","Adamant cannonball","Rune cannonball"]
+*/
+#define VAR_MERCENARYSHIPWRECK_ENUMLIST_FILTER_AMMUNITIONANDMATERIALS []
+CONST_MERCENARYSHIPWRECK_RULE (name:VAR_MERCENARYSHIPWRECK_ENUMLIST_FILTER_AMMUNITIONANDMATERIALS) {
+  hidden = true;
+}
+
+/*@ define:input
+type: enumlist
+label: 'Hide drops: Seeds and frags'
+group: Mercenary shipwreck
+enum: ["Umbral frag","Camphor seed","Ironwood seed"]
+*/
+#define VAR_MERCENARYSHIPWRECK_ENUMLIST_FILTER_SEEDSANDFRAGS []
+CONST_MERCENARYSHIPWRECK_RULE (name:VAR_MERCENARYSHIPWRECK_ENUMLIST_FILTER_SEEDSANDFRAGS) {
+  hidden = true;
+}
+
+/*@ define:input
+type: enumlist
+label: 'Hide drops: Logs'
+group: Mercenary shipwreck
+enum: ["Mahogany logs","Camphor logs","Ironwood logs"]
+*/
+#define VAR_MERCENARYSHIPWRECK_ENUMLIST_FILTER_LOGS []
+CONST_MERCENARYSHIPWRECK_RULE (name:VAR_MERCENARYSHIPWRECK_ENUMLIST_FILTER_LOGS) {
+  hidden = true;
+}
+
+/*@ define:input
+type: enumlist
+label: 'Hide drops: Other'
+group: Mercenary shipwreck
+enum: ["Amulet of power","Adamantite nails"]
+*/
+#define VAR_MERCENARYSHIPWRECK_ENUMLIST_FILTER_OTHER []
+CONST_MERCENARYSHIPWRECK_RULE (name:VAR_MERCENARYSHIPWRECK_ENUMLIST_FILTER_OTHER) {
+  hidden = true;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*@ define:module:slayer
 name: 'PvM: slayer'
 description: |
@@ -363,7 +461,7 @@ label: 'Hide drops: 100%'
 group: Gryphon
 enum: ["Bones","Gryphon feather"]
 */
-#define VAR_GRYPHON_ENUMLIST_FILTER_100 []
+#define VAR_GRYPHON_ENUMLIST_FILTER_100 ["Bones","Gryphon feather"]
 CONST_GRYPHON_RULE (name:VAR_GRYPHON_ENUMLIST_FILTER_100) {
   hidden = true;
 }
